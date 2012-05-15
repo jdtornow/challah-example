@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406190725) do
+ActiveRecord::Schema.define(:version => 20120515183234) do
 
   create_table "permission_roles", :force => true do |t|
     t.integer "role_id"

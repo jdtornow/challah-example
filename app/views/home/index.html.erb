@@ -1,11 +1,20 @@
-<h1>Home</h1>
+<div class="hero-unit">
+  <h1>Challah!</h1>
+  <p>
+    Welcome to the Challah test site. This site serves as a primitive example of how to
+    use the <a href="https://github.com/jdtornow/challah">Challah</a> gem for basic authentication
+    and authorization in your Rails app.
+  </p>
+
+  <p><a class="btn btn-primary btn-large" href="https://github.com/jdtornow/challah">View Project &raquo;</a></p>
+</div>
 
 <% if current_user? %>
-  <p>You are logged in as <%= current_user.name %>.</p>
-
-  <p><%= link_to 'Log out', logout_path %></p>
+  <div class="alert alert-block alert-success">
+    Congrats. You are signed in successfully as <strong><%= current_user.name %></strong>.
+  </div>
 <% else %>
-  <p>You are not logged in.</p>
-
-  <p><%= link_to 'Log in', login_path %></p>
+  <div class="alert alert-block alert-info">
+    You are not currently signed in.
+  </div>
 <% end %>
