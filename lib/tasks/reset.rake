@@ -8,7 +8,7 @@ namespace :challah do
     admin.first_name = "Admin"
     admin.last_name = "McGee"
     admin.username = "admin"
-    admin.email = "admin@example.com"
+    admin.email = "admin@challah.me"
     admin.role_id = Role[:administrator].id
     admin.password = 'test123'
     admin.password_confirmation = 'test123'

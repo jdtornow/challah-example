@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120515183234) do
+ActiveRecord::Schema.define(:version => 20120701152461) do
 
   create_table "permission_roles", :force => true do |t|
     t.integer "role_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20120515183234) do
     t.string   "last_name"
     t.string   "username"
     t.string   "email"
+    t.string   "email_hash"
     t.string   "crypted_password"
     t.string   "persistence_token"
     t.string   "api_key"

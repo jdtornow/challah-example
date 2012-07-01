@@ -11,6 +11,12 @@
   </div>
 <% end %>
 
+<div class="pull-right well span2" style="text-align:center;">
+  <%= image_tag("http://gravatar.com/avatar/#{current_user.email_hash}?s=100", :alt => current_user.name, :height => 100, :width => 100) %>
+  <br>
+  Your avatar is served from <a href="http://gravatar.com">Gravatar</a>
+</div>
+
 <%= form_for(@user, :url => profile_path, :method => :put) do |f| %>
   <% if @user.errors.any? %>
   <div class="alert alert-block alert-error">
