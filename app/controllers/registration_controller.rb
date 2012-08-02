@@ -8,8 +8,6 @@ class RegistrationController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    @user.role_id = Role[:default].id
-
     if @user.save
       Challah::Session.create!(@user, request, params)
       redirect_to root_path

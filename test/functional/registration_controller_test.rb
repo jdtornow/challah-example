@@ -14,8 +14,6 @@ class RegistrationControllerTest < ActionController::TestCase
   end
 
   test "a non-authed user should be able to register" do
-    Role.create(:name => 'Default')
-
     assert_difference 'User.count', 1 do
       post :create, :user => { :first_name => 'john', :last_name => 'doe', :email => 'test@example.com', :password => 'test123', :password_confirmation => 'test123' }
     end
@@ -25,15 +23,12 @@ class RegistrationControllerTest < ActionController::TestCase
 
   protected
     def fake_user
-      role = Role.create(:name => 'Test Role')
-
       User.create({
         :first_name => 'Admin',
         :last_name => 'McGee',
         :email => 'admin@example.com',
         :password => 'test123',
-        :password_confirmation => 'test123',
-        :role_id => role.id
+        :password_confirmation => 'test123'
       }, :without_protection => true)
     end
 end

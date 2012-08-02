@@ -11,41 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701152461) do
-
-  create_table "permission_roles", :force => true do |t|
-    t.integer "role_id"
-    t.integer "permission_id"
-  end
-
-  add_index "permission_roles", ["permission_id"], :name => "index_permission_roles_on_permission_id"
-  add_index "permission_roles", ["role_id"], :name => "index_permission_roles_on_role_id"
-
-  create_table "permission_users", :force => true do |t|
-    t.integer "user_id"
-    t.integer "permission_id"
-  end
-
-  add_index "permission_users", ["permission_id"], :name => "index_permission_users_on_permission_id"
-  add_index "permission_users", ["user_id"], :name => "index_permission_users_on_user_id"
-
-  create_table "permissions", :force => true do |t|
-    t.string  "name"
-    t.text    "description"
-    t.string  "key",         :limit => 50
-    t.boolean "locked",                    :default => false
-  end
-
-  add_index "permissions", ["key"], :name => "index_permissions_on_key"
-
-  create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "default_path", :default => "/"
-    t.boolean  "locked",       :default => false
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120802211317) do
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
@@ -56,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20120701152461) do
     t.string   "crypted_password"
     t.string   "persistence_token"
     t.string   "api_key"
-    t.integer  "role_id"
+    t.integer  "role_id",           :default => 0
     t.datetime "last_session_at"
     t.string   "last_session_ip"
     t.integer  "session_count",     :default => 0

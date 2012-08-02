@@ -28,15 +28,12 @@ class ProfileControllerTest < ActionController::TestCase
 
   protected
     def fake_user
-      role = Role.create(:name => 'Test Role')
-
       User.create({
         :first_name => 'Admin',
         :last_name => 'McGee',
         :email => 'admin@example.com',
         :password => 'test123',
-        :password_confirmation => 'test123',
-        :role_id => role.id
+        :password_confirmation => 'test123'
       }, :without_protection => true)
     end
 end
