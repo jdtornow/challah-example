@@ -9,7 +9,11 @@ namespace :challah do
     admin.last_name = "McGee"
     admin.username = "admin"
     admin.email = "admin@challah.me"
-    admin.role_id = Role[:administrator].id
+
+    if defined? Role
+      admin.role_id = Role[:administrator].id
+    end
+
     admin.password = 'test123'
     admin.password_confirmation = 'test123'
     admin.save

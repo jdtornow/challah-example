@@ -2,7 +2,7 @@
 
 This application is available at [http://challah-example.herokuapp.com/](http://challah-example.herokuapp.com/). Every hour the database is reset, so any users created will be destroyed.
 
-A sample Rails **3.2.7** application using [Challah](https://github.com/jdtornow/challah).
+A sample Rails **3.2.8** application using [Challah](https://github.com/jdtornow/challah).
 
 ## Set up
 
