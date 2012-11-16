@@ -13,12 +13,15 @@ class ProfileController < ApplicationController
     # Show that the last user that updated data was themself
     @user.current_user = current_user
 
-    # Uses User#update_account_attributes to only update attributes that are
-    # safe to change. (User can't update their own role
-    if @user.update_account_attributes(params[:user])
-      redirect_to profile_path, :notice => 'Profile has been updated successfully.'
+    if @user.update_attributes(user_params)
+      redirect_to profile_path, notice: 'Profile has been updated successfully.'
     else
       render action: 'edit'
     end
   end
+
+  protected
+    def user_params
+      params[:user].slice(:first_name, :last_name, :email, :username, :password, :password_confirmation)
+    end
 end

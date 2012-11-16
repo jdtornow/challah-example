@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'challah', '>= 0.7'
+gem 'challah', '0.8.3'
 gem 'thin'
 
 # To use ActiveModel has_secure_password
