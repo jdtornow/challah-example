@@ -13,7 +13,7 @@ describe HomeController do
       end
     end
 
-    context "without a user session" do
+    context "with a user session" do
 
       before do
         signin_as(user)

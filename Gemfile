@@ -26,7 +26,7 @@ group :test do
   gem "mocha", require: false
   gem "rspec-rails"
   gem "simplecov"
-  gem "turn"
+  gem "shoulda-matchers"
 end
 
 group :production do

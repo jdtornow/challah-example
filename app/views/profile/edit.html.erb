@@ -1,0 +1,87 @@
+<div class="page-header">
+  <h1>
+    Profile
+    <small>Update your account information</small>
+  </h1>
+</div>
+
+<% if flash[:notice] %>
+  <div class="alert alert-block alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<div class="pull-right well span2" style="text-align:center;">
+  <%= image_tag("http://gravatar.com/avatar/#{current_user.email_hash}?s=100", :alt => current_user.name, :height => 100, :width => 100) %>
+  <br>
+  Your avatar is served from <a href="http://gravatar.com">Gravatar</a>
+</div>
+
+<%= form_for(@user, :url => profile_path, :method => :put) do |f| %>
+  <% if @user.errors.any? %>
+  <div class="alert alert-block alert-error">
+    <h4 class="alert-heading"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="span6 form-horizontal">
+      <div class="control-group">
+        <%= f.label :first_name, 'First Name', :class => 'control-label' %>
+
+        <div class="controls">
+          <%= f.text_field :first_name, :size => 40, :maxlength => 200, :class => 'span3' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :last_name, 'Last Name', :class => 'control-label' %>
+
+        <div class="controls">
+          <%= f.text_field :last_name, :size => 40, :maxlength => 200, :class => 'span3' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :username, 'Username', :class => 'control-label' %>
+
+        <div class="controls">
+          <%= f.text_field :username, :size => 40, :maxlength => 200, :class => 'span3' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :email, 'Email', :class => 'control-label' %>
+
+        <div class="controls">
+          <%= f.text_field :email, :size => 40, :maxlength => 200, :class => 'span3' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :password, 'Change password', :class => 'control-label' %>
+
+        <div class="controls">
+          <%= f.password_field :password, :size => 40, :maxlength => 200, :class => 'span3' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :password_confirmation, 'Confirm password', :class => 'control-label' %>
+
+        <div class="controls">
+          <%= f.password_field :password_confirmation, :size => 40, :maxlength => 200, :class => 'span3' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Update Profile', :class => 'btn btn-primary' %>
+  </div>
+<% end %>
