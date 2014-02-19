@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h1>Sign In</h1>
+</div>
+
+<% if flash[:alert] %>
+  <div class="alert alert-block alert-error">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<%= form_for(@session, as: :session, url: signin_path, method: :post, html: { id: 'log-in-form' }) do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :username, t('.user_or_email'), class: 'control-label' %>
+        <%= f.text_field :username, size: 40, maxlength: 200, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, t('.password'), :class => 'control-label' %>
+        <%= f.password_field :password, size: 40, maxlength: 200, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions"><%= f.submit t('.signin'), class: 'btn btn-primary' %></div>
+<% end %>
