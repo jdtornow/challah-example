@@ -1,0 +1,12 @@
+development:
+  encoding: unicode
+  adapter: postgresql
+  host: localhost
+  database: challah_development
+
+test:
+  encoding: unicode
+  adapter: postgresql
+  host: localhost
+  database: challah_test
+  min_messages: warning

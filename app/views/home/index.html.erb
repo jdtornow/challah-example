@@ -1,0 +1,30 @@
+<div class="hero-unit">
+  <h1>Challah!</h1>
+  <p>
+    Welcome to the Challah test site. This site serves as a primitive example of how to
+    use the <a href="https://github.com/jdtornow/challah">Challah</a> gem for basic authentication
+    and authorization in your Rails app.
+  </p>
+
+  <p><a class="btn btn-primary btn-large" href="https://github.com/jdtornow/challah">View Project &raquo;</a></p>
+</div>
+
+<% if current_user? %>
+  <div class="row">
+    <div class="span9">
+      <div class="alert alert-block alert-success">
+        Congrats. You are signed in successfully as <strong><%= current_user.name %></strong>.
+      </div>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper magna eget orci laoreet in auctor tortor pellentesque. Nulla facilisi. Vestibulum accumsan consequat leo, sit amet euismod ligula gravida varius. Mauris molestie erat quis dolor ornare a posuere nibh accumsan. Fusce augue urna, vulputate sit amet pharetra a, sodales vitae mi. In facilisis enim sed mauris scelerisque non lacinia justo condimentum.</p>
+    </div>
+
+    <div class="pull-right well span2" style="text-align:center;">
+      <%= image_tag("http://gravatar.com/avatar/#{current_user.email_hash}?s=100", :alt => current_user.name, :height => 100, :width => 100) %>
+    </div>
+  </div>
+<% else %>
+  <div class="alert alert-block alert-info">
+    You are not currently signed in.
+  </div>
+<% end %>
