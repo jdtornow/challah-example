@@ -6,7 +6,7 @@ gem "rails", "4.0.3"
 
 gem "pg"
 gem "haml-rails"
-gem "challah", "~> 1.1"
+gem "challah", "~> 1.2"
 
 group :assets do
   gem "sprockets-rails", "~> 2.0"
